@@ -39,6 +39,7 @@ import PersonOutlineRoundedIcon from '@material-ui/icons/PersonOutlineRounded';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SchoolRoundedIcon from '@material-ui/icons/SchoolRounded';
 import StorageRoundedIcon from '@material-ui/icons/StorageRounded';
+import Dashboard from "./Dashboard";
 
 
 
@@ -164,6 +165,10 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  profileIcon:{
+   display:"flex",
+  alignItems:"flex-center"
+  }
 }));
 
 function Header(props) {
@@ -306,7 +311,7 @@ const [openList,setopenList] = useState(false);
               classes={{ root: classes.menuItem }}
               onClick={() => {
                 menuClose();
-                setValue(3);
+                  setValue(3);
               }}
               component={Link}
               to="/profile"
@@ -338,6 +343,7 @@ const [openList,setopenList] = useState(false);
             [classes.drawerOpen]: openDrawer,
             [classes.drawerClose]: !openDrawer
           })
+
         }}
       >
         <div className={classes.toolbarMargin}>
@@ -353,29 +359,9 @@ const [openList,setopenList] = useState(false);
         <List
   
         >
-          {routes.map(route => (
-            <ListItem
-              key={`${route}${route.activeIndex}`}
-              divider
-              button
-              component={Link}
-              to={route.link}
-              selected={value === route.activeIndex}
-              classes={{ selected: classes.drawerItemSelected }}
-              onClick={() => {
-                listClick();
-                setValue(route.activeIndex);
-              }}
-              className={classes.drawerItem}
-            >
-              <ListItemIcon>{route.icon}</ListItemIcon>
-              <ListItemText disableTypography>{route.name}</ListItemText>
-            </ListItem>
-          ))}
-
-
-  <ListItem button onClick={handleClick}>
-<ListItemIcon>
+          
+          <ListItem button onClick={handleClick}>
+<ListItemIcon className={classes.profileIcon} >
           <AccountCircle />
         </ListItemIcon>
         <ListItemText disableTypography >
@@ -411,12 +397,35 @@ const [openList,setopenList] = useState(false);
 </Collapse>
 
 )))}
+
+          {routes.map(route => (
+            <ListItem
+              key={`${route}${route.activeIndex}`}
+              divider
+              button
+              component={Link}
+              to={route.link}
+              selected={value === route.activeIndex}
+              classes={{ selected: classes.drawerItemSelected }}
+              onClick={() => {
+                listClick();
+                setValue(route.activeIndex);
+              }}
+              className={classes.drawerItem}
+            >
+              <ListItemIcon>{route.icon}</ListItemIcon>
+              <ListItemText disableTypography>{route.name}</ListItemText>
+            </ListItem>
+          ))}
+
+
+
         </List>
       </Drawer>
       <main className={classes.content}  >
         <div className={classes.toolbarMargin} />
         <Switch>
-        <Route exact path="/" component={() => <div>DashBoard</div>} />
+        <Route exact path="/" component={Dashboard} />
             <Route exact path="/school" component={() => <div>tenaaa</div>} />
             <Route exact path="/database" component={() => <div>DIESL:FD</div>} />
             <Route
