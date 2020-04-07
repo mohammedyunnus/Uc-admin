@@ -4,55 +4,42 @@ import Paper from "@material-ui/core/Paper";
 import { Typography, makeStyles } from "@material-ui/core";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import DoubleArrowRoundedIcon from "@material-ui/icons/DoubleArrowRounded";
-const useStyles = makeStyles(theme => ({
+import Button from "@material-ui/core/Button";
+
+
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    display: "grid",
   },
 
   paper: {
-    backgroundColor: "#00C0EF",
-
-    width: "17rem"
+    // width: "18rem",
+    // minHeight: "11rem",
+    height: "100%",
   },
-  paper1: {
-    backgroundColor: "#00A65A",
 
-    width: "17rem"
-  },
-  paper2: {
-    backgroundColor: "#F39C12",
-
-    width: "17rem"
-  },
-  paper3: {
-    backgroundColor: "#DD4B39",
-
-    width: "17rem"
-  },
   buttonInfo: {
+    // justifyContent:"center",
+    // alignItems:"flex-end",
+    direction: "row",
+    justifyContent: "center",
+    // alignItems: "flex-end",
     textAlign: "center",
-    padding: 5,
-    backgroundColor: "#00A3CB",
-    marginTop: 20,
-    opacity:0.7,
+    padding:"0.5rem",
+
+    opacity: 0.7,
     "&:hover": {
-       opacity:1,
-      },
+      opacity: 1,
+    },
   },
-  buttonInfo1: {
-    textAlign: "center",
-    padding: 5,
-    backgroundColor: "#008D4D",
-opacity:0.7,
-    "&:hover": {
-       opacity:1,
-      },
-   
-    marginTop: 20
+  num: {
+    paddingLeft: "1rem",
+    paddingTop: "0.5rem",
   },
-  num:{
-      padding: "1rem"
-  }
+  text: {
+    padding: "0.5em",
+  },
 }));
 
 function Dashboard() {
@@ -65,16 +52,63 @@ function Dashboard() {
         </Grid>
       </Grid>
 
-      <Grid container spacing={1}>
+      <Grid container spacing={2}>
         <Grid item style={{ marginTop: 50 }} xs>
-          <Paper className={classes.paper}>
+          <Paper
+            className={classes.paper}
+            style={{ backgroundColor: "#00C0EF" }}
+          >
             <Grid item>
-              <Typography  className={classes.num}variant="subtitle1">111</Typography>
+              <Typography className={classes.num} variant="h4">
+                111
+              </Typography>
             </Grid>
-            <Grid item style={{ marginTop: 15 }}>
+            <Grid item  style={{ marginTop: 20 }}>
               <Typography variant="subtitle1">No of schools</Typography>
             </Grid>
-            <Grid item className={classes.buttonInfo}>
+            <Grid
+              container
+              item
+              className={classes.buttonInfo}
+              style={{ backgroundColor: "#00A3CB" ,marginTop: 24 }}
+                  >
+              <ButtonBase fullWidth={true} >
+                <Typography varient="button" display="block">
+                  More Info
+                  <DoubleArrowRoundedIcon style={{ fontSize: "small" }} />
+                </Typography>
+              </ButtonBase>
+            </Grid>
+          </Paper>
+        </Grid>
+
+        <Grid item style={{ marginTop: 50 }} xs>
+          <Paper
+            className={classes.paper}
+            style={{ backgroundColor: "#00A65A" }}
+          >
+            <Grid item xs container>
+              <Grid item xs container direction="column" spacing={2}>
+                <Grid item xs>
+                  <Typography className={classes.num} variant="h4">
+                    36
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Grid item className={classes.text}>
+                <Typography variant="subtitle1">Approved:36</Typography>
+                <Typography variant="subtitle1">Pending : 102</Typography>
+                <Typography variant="subtitle1">Rejected : 1</Typography>
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Typography>No. of Trial User</Typography>
+            </Grid>
+            <Grid
+              item
+              className={classes.buttonInfo}
+              style={{ backgroundColor: "#008D4D" }}
+            >
               <ButtonBase>
                 <Typography varient="button" display="block">
                   More Info
@@ -86,22 +120,23 @@ function Dashboard() {
         </Grid>
 
         <Grid item style={{ marginTop: 50 }} xs>
-          <Paper className={classes.paper1}>
+          <Paper
+            className={classes.paper}
+            style={{ backgroundColor: "#F39C12" }}
+          >
             <Grid item>
-              <Typography className={classes.num} variant="subtitle1">36</Typography>
+              <Typography className={classes.num} variant="h4">
+                4737
+              </Typography>
             </Grid>
-            
-            <Grid item  alignContent="flex-end">
-              <Typography variant="subtitle1">Approved:36</Typography>
+            <Grid item style={{ marginTop: 15 }}>
+              <Typography variant="subtitle1">Total No. of Students</Typography>
             </Grid>
-            <Grid item  alignContent="flex-end">
-              <Typography variant="subtitle1">No of schools</Typography>
-            </Grid>
-            <Grid item  alignContent="flex-end">
-              <Typography variant="subtitle1">No of schools</Typography>
-            </Grid>
-        
-            <Grid item className={classes.buttonInfo1}>
+            <Grid
+              item
+              className={classes.buttonInfo}
+              style={{ backgroundColor: "#CF850F" ,marginTop: "2.1em" }}
+            >
               <ButtonBase>
                 <Typography varient="button" display="block">
                   More Info
@@ -113,33 +148,31 @@ function Dashboard() {
         </Grid>
 
         <Grid item style={{ marginTop: 50 }} xs>
-          <Paper className={classes.paper2}>
+          <Paper
+            className={classes.paper}
+            style={{ backgroundColor: "#DD4B39" }}
+          >
+            <Grid item xs container>
+              <Grid item xs container direction="column" spacing={2}>
+                <Grid item xs>
+                  <Typography className={classes.num} variant="h4">
+                    65
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Grid item className={classes.text}>
+                <Typography variant="subtitle1">Current Month : 44</Typography>
+                <Typography variant="subtitle1">Previous Month : 44</Typography>
+              </Grid>
+            </Grid>
             <Grid item>
-              <Typography className={classes.num} variant="subtitle1">111</Typography>
+              <Typography>Sms Count</Typography>
             </Grid>
-            <Grid item style={{ marginTop: 15 }}>
-              <Typography variant="subtitle1">No of schools</Typography>
-            </Grid>
-            <Grid item className={classes.buttonInfo} style={{backgroundColor:"#CF850F"}}>
-              <ButtonBase>
-                <Typography varient="button" display="block">
-                  More Info
-                  <DoubleArrowRoundedIcon style={{ fontSize: "small" }} />
-                </Typography>
-              </ButtonBase>
-            </Grid>
-          </Paper>
-        </Grid>
-
-        <Grid item style={{ marginTop: 50 }} xs>
-          <Paper className={classes.paper3}>
-            <Grid item>
-              <Typography  className={classes.num} variant="subtitle1">47</Typography>
-            </Grid>
-            <Grid item style={{ marginTop: 15 }}>
-              <Typography variant="subtitle1">No of schools</Typography>
-            </Grid>
-            <Grid item className={classes.buttonInfo} style={{backgroundColor:"#BC4031"}}>
+            <Grid
+              item
+              className={classes.buttonInfo}
+              style={{ backgroundColor: "#BC4031" , marginTop: "2em"}}
+            >
               <ButtonBase>
                 <Typography varient="button" display="block">
                   More Info
@@ -150,6 +183,16 @@ function Dashboard() {
           </Paper>
         </Grid>
       </Grid>
+<div>
+      <Grid xs container direction="column" >
+        <Paper className={classes.paper} style={{backgroundColor:"blue"}}>
+          
+          <Grid item>
+       
+          </Grid>
+        </Paper>
+      </Grid>
+      </div>
     </div>
   );
 }

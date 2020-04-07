@@ -39,7 +39,49 @@ fontWeight:300,
 fontSize:"1rem",
     }
   },
-});
+  overrides: {
+    MuiInputLabel: {
+      root: {
+        color: "#73fd61",
+        fontSize: "1rem",
+      },
+      '& .MuiInput-underline:after': {
+        borderBottomColor: 'green',
+      },
+    },
+    MuiInput: {
+      underline: {
+        // "&:before": {
+        //   borderBottom: ` 2px solid $("#73fd61")`,
+        // },
+        // "&:hover:not($disabled):not($focused):not($error):before": {
+        //   borderBottom: ` 2px solid $("#33c92d")`,
+        // },
+           color: 'white',//input color focus of not  
+          // backgroundColor:"grey",//background color of whole input 
+          '&:hover:not($disabled):after': {
+            // backgroundColor: 'grey',//its when its hover and input is focused 
+             borderBottom: ` 2px solid $("#73fd61")`,
+          },
+          '&:hover:not($disabled):before': {
+            // backgroundColor: 'yellow',//its when you hover and input is not foucused 
+            // borderBottom: ` 2px solid $("#73fd61")`,
+          },
+          '&:after': {
+            // backgroundColor: 'blue',//when input is focused, Its just for example. Its better to set this one using primary color
+            borderBottom: ` 2px solid $("#33c92d")`
+          },
+          '&:before': {
+            // backgroundColor: 'red',// when input is not touched
+            borderBottom: ` 2px solid $("#33c92d")`
+          },
+        },
+        
+      },
+    },
+  },
+
+);
 console.log(theme);
 
 export default  theme;
