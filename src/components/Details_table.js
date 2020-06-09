@@ -98,7 +98,7 @@ function Details_table() {
    pageSize:10,
 //    paginationType:"stepped",
 // toolbarButtonAlignment:"left",
-
+      filtering:true,
     
   }}
   editable={{
