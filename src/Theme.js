@@ -42,7 +42,7 @@ fontSize:"1rem",
   overrides: {
     MuiInputLabel: {
       root: {
-        color: "#73fd61",
+        color: "yellow",
         fontSize: "1rem",
       },
       '& .MuiInput-underline:after': {

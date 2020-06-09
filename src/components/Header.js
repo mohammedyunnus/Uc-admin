@@ -44,7 +44,9 @@ import StorageRoundedIcon from "@material-ui/icons/StorageRounded";
 import Dashboard from "./Dashboard";
 import AssignmentIndRoundedIcon from '@material-ui/icons/AssignmentIndRounded';
 import AssessmentRoundedIcon from '@material-ui/icons/AssessmentRounded';
-import  Register from "./Register";
+// import  Register from "./Register";
+// import Link from "next/link"
+import Details_table from "./Details_table";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -549,18 +551,19 @@ subName:""
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbarMargin} />
+        {/* <Link></Link> */}
         <Switch>
           <Route exact path="/" component={Dashboard} />
-          {/* <Route exact path="/school" component={() => <div>tenaaa</div>} /> */}
+          <Route exact path="/school" component={() => <div>tenaaa</div>} />
           <Route exact path="/database" component={() => <div>DIESL:FD</div>} />
-          <Route
+          {/* <Route
             exact
             path="/profile"
             component={Register}
-          />
+          /> */}
           <Route exact path="/Logout" component={() => <div>Logout</div>} />
         <Route exact path="/Manage" component={()=> <div>CLents</div>} />
-        <Route exact path="/Details" component={()=> <div>Details</div>} />
+        <Route exact path="/Details" component={Details_table} />
         </Switch>
       </main>
     </div>
